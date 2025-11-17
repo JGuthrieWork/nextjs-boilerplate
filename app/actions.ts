@@ -1,10 +1,11 @@
-// app/actions.ts
 'use server';
 
-// This directive is crucial. It tells Next.js this function runs on the server.
+import { Resend } from 'resend'; // Import is missing
+
+// Initialize the client
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function submitBooking(prevState: any, formData: FormData) {
-  // 1. Extract the data
   const booking = {
     name: formData.get('name'),
     email: formData.get('email'),
@@ -15,22 +16,23 @@ export async function submitBooking(prevState: any, formData: FormData) {
 
   console.log('Server received booking:', booking);
 
-  // 2. Simulate a database/email delay (Remove this in production)
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  try {
+    await resend.emails.send({
+      from: 'Sparkle Detail <onboarding@resend.dev>',
+      to: 'jguthriewrk@gmail.com',
+      subject: 'New Booking Request',
+      text: `New booking from ${booking.name} (\n${booking.email}) for a ${booking.vehicle}.\nService: ${booking.servicePackage}\nDate: ${booking.date}`
+    });
 
-  // 3. TODO: Integrate Real Email Sending
-  // To make this truly "live", you would install an SDK like 'resend' here.
-  // Example:
-  await resend.emails.send({
-    from: 'Sparkle Detail <onboarding@resend.dev>',
-    to: 'jguthriewrk@gmail.com',
-    subject: 'New Booking Request',
-    text: `New booking from ${booking.name} for a ${booking.vehicle}.`
-  });
-
-  // 4. Return state to the client
-  return { 
-    success: true, 
-    message: 'Booking received! We will contact you shortly.' 
-  };
+    return { 
+      success: true, 
+      message: 'Booking received! We will contact you shortly.' 
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      success: false,
+      message: 'Failed to send booking request. Please try again.'
+    };
+  }
 }
