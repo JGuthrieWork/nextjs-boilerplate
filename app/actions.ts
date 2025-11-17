@@ -18,7 +18,7 @@ export async function submitBooking(prevState: any, formData: FormData) {
 
   try {
     await resend.emails.send({
-      from: 'Sparkle Detail <onboarding@resend.dev>',
+      from: 'Sparkle Detail <jguthriewrk@gmail.com>',
       to: 'jguthriewrk@gmail.com',
       subject: 'New Booking Request',
       text: `New booking from ${booking.name} (\n${booking.email}) for a ${booking.vehicle}.\nService: ${booking.servicePackage}\nDate: ${booking.date}`
