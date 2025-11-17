@@ -64,19 +64,19 @@ export default function Home() {
                 title: "Exterior Detail", 
                 price: "Starts at $150", 
                 desc: "Multi-stage hand wash, clay bar decontamination, iron removal, and sealant application.",
-                icon: "✨"
+                icon: "I"
               },
               { 
                 title: "Paint Correction", 
                 price: "Starts at $400", 
                 desc: "Machine polishing to remove swirl marks, scratches, and oxidation for mirror-like reflections.",
-                icon: "💎"
+                icon: "II"
               },
               { 
                 title: "Ceramic Coating", 
                 price: "Starts at $800", 
                 desc: "The ultimate protection. 5-year guarantee liquid glass shield against UV, chemicals, and dirt.",
-                icon: "🛡️"
+                icon: "III"
               },
             ].map((service, i) => (
               <div key={i} className="glass-panel p-8 rounded-3xl group hover:-translate-y-2 transition-all duration-500 hover:border-blue-500/30 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.15)]">
