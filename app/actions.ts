@@ -21,12 +21,12 @@ export async function submitBooking(prevState: any, formData: FormData) {
   // 3. TODO: Integrate Real Email Sending
   // To make this truly "live", you would install an SDK like 'resend' here.
   // Example:
-  // await resend.emails.send({
-  //   from: 'Sparkle Detail <onboarding@resend.dev>',
-  //   to: 'your-email@gmail.com',
-  //   subject: 'New Booking Request',
-  //   text: `New booking from ${booking.name} for a ${booking.vehicle}.`
-  // });
+  await resend.emails.send({
+    from: 'Sparkle Detail <onboarding@resend.dev>',
+    to: 'jguthriewrk@gmail.com',
+    subject: 'New Booking Request',
+    text: `New booking from ${booking.name} for a ${booking.vehicle}.`
+  });
 
   // 4. Return state to the client
   return { 
