@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+    <div className="min-h-screen pt-24 pb-16">
       <h1 className="text-4xl font-bold mb-12 text-center">Get in Touch</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="glass-panel p-8 rounded-3xl flex flex-col h-full">
