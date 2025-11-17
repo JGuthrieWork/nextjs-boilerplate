@@ -13,7 +13,7 @@ function SubmitButton() {
     <button 
       disabled={pending}
       type="submit" 
-      className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+      className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all"
     >
       {pending ? 'Submitting Request...' : 'Confirm Booking'}
     </button>
@@ -40,7 +40,7 @@ export default function Schedule() {
       <h1 className="text-4xl font-bold mb-8 text-center">Book Your Detail</h1>
       
       {/* The action attribute points to our Server Action wrapper */}
-      <form action={formAction} className="space-y-6 bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm">
+      <form action={formAction} className="space-y-6 glass-panel p-8 md:p-10 rounded-3xl shadow-2xl backdrop-blur-md">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-2">Full Name</label>
